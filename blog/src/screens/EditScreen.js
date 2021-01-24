@@ -11,7 +11,9 @@ const EditScreen = ({navigation}) => {
     return <BlogPostForm 
         initialValue={{title : blogPost.title, content: blogPost.content}}
         onSubmit={(title, content)=> {
-            editBlogPost(navigation.getParam('id'), title, content)
+            editBlogPost(navigation.getParam('id'), title, content, ()=> {
+                navigation.pop();
+            })
         }}
     />
 
